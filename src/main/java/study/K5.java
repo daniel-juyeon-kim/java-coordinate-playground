@@ -1,9 +1,10 @@
-public class Sonata implements Car{
+package study;
 
-    private final int literPerKM = 10;
+public class K5 implements Car{
+    private final int literPerKM = 13;
     private int distance;
 
-    public Sonata(int distance) {
+    public K5(int distance) {
         this.distance = distance;
     }
 

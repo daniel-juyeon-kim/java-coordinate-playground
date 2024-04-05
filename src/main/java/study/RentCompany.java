@@ -1,3 +1,5 @@
+package study;
+
 public class RentCompany {
 
     private Cars cars = new Cars();

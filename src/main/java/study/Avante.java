@@ -1,8 +1,10 @@
-public class K5 implements Car{
-    private final int literPerKM = 13;
+package study;
+
+public class Avante implements Car {
+    private final int literPerKM = 15;
     private int distance;
 
-    public K5(int distance) {
+    public Avante(int distance) {
         this.distance = distance;
     }
 
