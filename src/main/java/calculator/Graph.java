@@ -1,7 +1,6 @@
 package calculator;
 
 public class Graph {
-    private final int max = 24;
     private final Axis yAxis = new YAxis();
     private final Axis xAxis = new XAxis();;
 
