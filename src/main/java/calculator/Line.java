@@ -1,34 +1,44 @@
 package calculator;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Line {
-    private final Point start;
-    private final Point end;
+    private final List<Point> points = new LinkedList<>();
     private final String splitter = "-";
     private final String InvalidFormatMessage = "표현식에 맞지 않습니다.";
 
     public Line(String values) throws IllegalArgumentException {
-        start = new Point(split(values)[0]);
-        end = new Point(split(values)[1]);
+        validate(values);
+        for (String value : split(values)) {
+            points.add(new Point(value));
+        }
+    }
+
+    private void validate(String values) {
+        if (isTwo(split(values))) {
+            return;
+        }
+        throw new IllegalArgumentException(InvalidFormatMessage);
     }
 
     private String[] split(String values) {
-        String [] splitValues = values.split(splitter);
-        if (isLengthTwo(splitValues)) {
-            throw new IllegalArgumentException(InvalidFormatMessage);
-        }
-        return splitValues;
+        return values.split(splitter);
     }
 
-    private boolean isLengthTwo(String[] splitValues) {
-        return splitValues.length != 2;
+    private boolean isTwo(String[] splitValues) {
+        return splitValues.length == 2;
     }
 
     public void draw(StringBuilder sb) {
-        start.draw(sb);
-        end.draw(sb);
+        for (Point point : points) {
+            point.draw(sb);
+        }
     }
 
     public double calculateArea() {
+        Point start = points.get(0);
+        Point end = points.get(1);
         return start.calculateDistance(end);
     }
 }
