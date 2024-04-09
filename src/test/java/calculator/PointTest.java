@@ -11,7 +11,7 @@ public class PointTest {
     @Test
     void coordinateTest() {
         assertDoesNotThrow(() -> {
-            new Point("(1,23)");
+            new Point("(0,24)");
         });
 
         assertThatThrownBy(() -> {
@@ -20,7 +20,22 @@ public class PointTest {
                 .hasMessage("숫자만 입력 가능합니다.");
 
         assertThatThrownBy(() -> {
-            new Point("(1,df");
+            new Point("(d4,3");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("표현식에 맞지 않습니다.");
+
+        assertThatThrownBy(() -> {
+            new Point("8,3");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("표현식에 맞지 않습니다.");
+
+        assertThatThrownBy(() -> {
+            new Point("(12,df3)(");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("표현식에 맞지 않습니다.");
+
+        assertThatThrownBy(() -> {
+            new Point("(1f,21)-(");
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("표현식에 맞지 않습니다.");
     }

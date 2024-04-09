@@ -30,11 +30,11 @@ public class Point {
     private boolean isMatch(String expression) {
         Matcher matcher = match(expression);
 
-        return matcher.find() && matcher.groupCount() == 2;
+        return matcher.find();
     }
 
     private Matcher match(String expression) {
-        Pattern pattern = Pattern.compile("\\((.*),(.*)\\)");
+        Pattern pattern = Pattern.compile("^\\((-?\\w+),(-?\\w+)\\)$");
         return pattern.matcher(expression);
     }
 
