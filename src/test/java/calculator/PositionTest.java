@@ -1,6 +1,5 @@
 package calculator;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -32,7 +31,7 @@ public class PositionTest {
     }
 
     @Test
-    void getDistance() {
+    void calculateDistanceTest() {
         XPosition start = new XPosition("0");
         XPosition end = new XPosition("1");
 
