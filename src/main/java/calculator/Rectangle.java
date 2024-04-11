@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -8,6 +7,7 @@ import java.util.stream.Stream;
 public class Rectangle extends Shape{
 
     private final int POINTS_SIZE = 4;
+    private final String RESULT_MESSAGE = "사각형 넓이는 ";
     private final String NOT_SQUARE_POINTS = "직사각형의 좌표가 아닙니다.";
     private final String INVALID_POINTS_SIZE = "점이 " + POINTS_SIZE + "개가 아닙니다.";
 
@@ -58,16 +58,22 @@ public class Rectangle extends Shape{
         return size == POINTS_SIZE;
     }
 
+    @Override
     public String calculateArea() {
         Point startPoint = points.get(0);
 
         List<Integer> lines = filterSamePosition(startPoint)
-                                        .map(sameAxisPoint -> {
-                                            return (int) startPoint.calculateDistance(sameAxisPoint);
-                                        })
-                                        .collect(Collectors.toList());
+                .map(sameAxisPoint -> {
+                    return (int) startPoint.calculateDistance(sameAxisPoint);
+                })
+                .collect(Collectors.toList());
 
         return Integer.toString (lines.get(0) * lines.get(1));
+    }
+
+    @Override
+    public String generateResultMessage() {
+        return RESULT_MESSAGE + calculateArea();
     }
 
 }

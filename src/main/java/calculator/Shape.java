@@ -64,4 +64,6 @@ public abstract class Shape {
     }
 
     abstract String calculateArea();
+    abstract String generateResultMessage();
+
 }
