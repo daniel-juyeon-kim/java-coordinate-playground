@@ -17,6 +17,16 @@ public class LineTest {
             new Line("(10,10)(14,15)");
         }).isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("표현식에 맞지 않습니다.");
+
+        assertThatThrownBy(() -> {
+            new Line("(10,10)-(14,15)-(1,1)");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("점이 2개가 아닙니다.");
+
+        assertThatThrownBy(() -> {
+            new Line("(10,10)-(10,10)");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복좌표가 있습니다.");
     }
 
     @Test
