@@ -1,5 +1,6 @@
 package calculator;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -36,5 +37,14 @@ public class PositionTest {
         XPosition end = new XPosition("1");
 
         assertThat(start.calculateDistance(end)).isEqualTo(-1);
+    }
+
+    @Test
+    void equalsTest() {
+        Position actual = new XPosition("1");
+
+        assertThat(actual).isEqualTo(new XPosition("1"));
+        assertThat(actual).isNotEqualTo(new YPosition("1"));
+        assertThat(actual).isNotEqualTo(new XPosition("0"));
     }
 }

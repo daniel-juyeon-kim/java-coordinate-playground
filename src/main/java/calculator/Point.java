@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,5 +58,18 @@ public class Point {
     public void draw(StringBuilder sb) {
         int platePosition = x.calculatePositionOfPlate() + y.calculatePositionOfPlate();
         sb.replace(platePosition, platePosition + 1, pointChar);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(x, point.x) && Objects.equals(y, point.y);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

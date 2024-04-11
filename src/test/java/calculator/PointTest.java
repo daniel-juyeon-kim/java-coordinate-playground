@@ -2,6 +2,7 @@ package calculator;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,5 +46,13 @@ public class PointTest {
         Point start = new Point("(0,0)");
         Point end = new Point("(1,1)");
         assertEquals(start.calculateDistance(end), 1.41421356, 0.0000001);
+    }
+
+    @Test
+    void equalsTest() {
+        Point actual = new Point("(0,0)");
+        
+        assertThat(actual).isEqualTo(new Point("(0,0)"));
+        assertThat(actual).isNotEqualTo(new Point("(0,2)"));
     }
 }
