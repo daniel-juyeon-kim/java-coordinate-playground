@@ -72,4 +72,9 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    boolean isSameAxis(Point point) {
+        return x.equals(point.x) || y.equals(point.y);
+    }
+
 }

@@ -1,6 +1,13 @@
 package calculator;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -51,8 +58,17 @@ public class PointTest {
     @Test
     void equalsTest() {
         Point actual = new Point("(0,0)");
-        
+
         assertThat(actual).isEqualTo(new Point("(0,0)"));
         assertThat(actual).isNotEqualTo(new Point("(0,2)"));
+    }
+
+    @Test
+    void isSameAxisTest() {
+        Point actual = new Point("(0,0)");
+
+        assertThat(actual.isSameAxis(new Point("(0,1)"))).isEqualTo(true);
+        assertThat(actual.isSameAxis(new Point("(1,0)"))).isEqualTo(true);
+        assertThat(actual.isSameAxis(new Point("(1,2)"))).isEqualTo(false);
     }
 }
