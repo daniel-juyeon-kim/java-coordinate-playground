@@ -4,17 +4,10 @@ public class Graph {
     private final Axis yAxis = new YAxis();
     private final Axis xAxis = new XAxis();;
 
-    public String draw(Line line) {
+    public String draw(Shape shape) {
         StringBuilder sb = new StringBuilder();
         drawPlate(sb);
-        line.draw(sb);
-        return sb.toString();
-    }
-
-    public String draw(Rectangle rectangle) {
-        StringBuilder sb = new StringBuilder();
-        drawPlate(sb);
-        rectangle.draw(sb);
+        shape.draw(sb);
         return sb.toString();
     }
 

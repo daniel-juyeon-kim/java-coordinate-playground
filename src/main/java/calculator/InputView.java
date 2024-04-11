@@ -6,7 +6,7 @@ public class InputView {
     private final String INPUT_MESSAGE = "좌표를 입력하세요.";
     private final Scanner in = new Scanner(System.in);
 
-    public Line show(){
+    public Shape show(){
         showMessage();
         return input();
     }
@@ -15,8 +15,8 @@ public class InputView {
         System.out.println(INPUT_MESSAGE);
     }
 
-    private Line input(){
-        return new Line(in.nextLine());
+    private Shape input(){
+        return Shape.generate(in.nextLine());
     }
 
 }
