@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 public class RectangleTest {
 
     @Test
-    void rectangleTest() {
+    void rectangleConstructorTest() {
 
         assertDoesNotThrow(() -> {
             new Rectangle("(0,0)-(2,0)-(2,1)-(0,1)");
@@ -32,9 +32,9 @@ public class RectangleTest {
     }
 
     @Test
-    void calculateArea() {
-        int area = new Rectangle("(0,14)-(2,0)-(2,14)-(0,0)").calculateArea();
+    void calculateAreaTest() {
+        String area = new Rectangle("(0,14)-(2,0)-(2,14)-(0,0)").calculateArea();
 
-        assertThat(area).isEqualTo(28);
+        assertThat(Integer.parseInt(area)).isEqualTo(28);
     }
 }

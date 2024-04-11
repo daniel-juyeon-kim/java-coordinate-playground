@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LineTest {
     @Test
-    void CoordinatesTest() {
+    void lineConstructorTest() {
         assertDoesNotThrow(() -> {
             new Line("(10,10)-(14,15)");
         });
@@ -31,7 +31,7 @@ public class LineTest {
 
     @Test
     void calculateAreaTest() {
-        double actual = new Line("(0,0)-(1,1)").calculateArea();
-        assertEquals(actual, 1.41421356, 0.0000001);
+        String actual = new Line("(0,0)-(1,1)").calculateArea();
+        assertEquals(Double.parseDouble(actual), 1.41421356, 0.0000001);
     }
 }
