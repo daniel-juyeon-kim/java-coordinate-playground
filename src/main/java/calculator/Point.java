@@ -5,8 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Point {
-    private final String notMatchMessage = "표현식에 맞지 않습니다.";
-    private final String pointChar = "*";
+    private final String NOT_MATCH_MESSAGE = "표현식에 맞지 않습니다.";
+    private final String POINT_CHAR = "*";
     private final Position x;
     private final Position y;
 
@@ -25,7 +25,7 @@ public class Point {
         if (isMatch(expression)) {
             return;
         }
-        throw new IllegalArgumentException(notMatchMessage);
+        throw new IllegalArgumentException(NOT_MATCH_MESSAGE);
     }
 
     private boolean isMatch(String expression) {
@@ -57,7 +57,7 @@ public class Point {
 
     public void draw(StringBuilder sb) {
         int platePosition = x.calculatePositionOfPlate() + y.calculatePositionOfPlate();
-        sb.replace(platePosition, platePosition + 1, pointChar);
+        sb.replace(platePosition, platePosition + 1, POINT_CHAR);
     }
 
     @Override

@@ -7,10 +7,10 @@ public class YPosition extends Position{
 
     @Override
     public int calculatePositionOfPlate() {
-        int lineSpace = max * 2;
+        int lineSpace = MAX * 2;
         int numberSpace = 2;
         int enterSpace = 1;
         int originPointSpace = 1;
-        return (numberSpace + originPointSpace + lineSpace + enterSpace ) * (max - value);
+        return (numberSpace + originPointSpace + lineSpace + enterSpace ) * (MAX - value);
     }
 }

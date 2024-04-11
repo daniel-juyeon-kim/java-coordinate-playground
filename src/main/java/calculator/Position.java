@@ -3,11 +3,11 @@ package calculator;
 import java.util.Objects;
 
 public abstract class Position {
-    private final int min = 0;
-    protected final int max = 24;
+    private final int MIN = 0;
+    protected final int MAX = 24;
     protected final int value;
-    private final String IllegalRangeMessage = "값은 " + min + " 부터 " + max + " 사이여야 합니다.";
-    private final String NotNumberMessage = "숫자만 입력 가능합니다.";
+    private final String ILLEGAL_RANGE_MESSAGE = "값은 " + MIN + " 부터 " + MAX + " 사이여야 합니다.";
+    private final String NOT_NUMBER_MESSAGE = "숫자만 입력 가능합니다.";
 
     public Position(String value) throws IllegalArgumentException{
         validate(value);
@@ -29,7 +29,7 @@ public abstract class Position {
         if (isNumber(value)) {
             return;
         }
-        throw new IllegalArgumentException(NotNumberMessage);
+        throw new IllegalArgumentException(NOT_NUMBER_MESSAGE);
     }
 
     private boolean isNumber(String value) {
@@ -45,11 +45,11 @@ public abstract class Position {
         if (isValidRange(value)) {
             return;
         }
-        throw new IllegalArgumentException(IllegalRangeMessage);
+        throw new IllegalArgumentException(ILLEGAL_RANGE_MESSAGE);
     }
 
     private boolean isValidRange(int value) {
-        return min <= value && value <= max;
+        return MIN <= value && value <= MAX;
     }
 
     private int parseToInt(String value) {

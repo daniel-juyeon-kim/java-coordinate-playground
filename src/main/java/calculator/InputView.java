@@ -3,7 +3,7 @@ package calculator;
 import java.util.Scanner;
 
 public class InputView {
-    private final String inputMessage = "좌표를 입력하세요.";
+    private final String INPUT_MESSAGE = "좌표를 입력하세요.";
     private final Scanner in = new Scanner(System.in);
 
     public Line show(){
@@ -12,7 +12,7 @@ public class InputView {
     }
 
     private void showMessage() {
-        System.out.println(inputMessage);
+        System.out.println(INPUT_MESSAGE);
     }
 
     private Line input(){
