@@ -6,10 +6,9 @@ import java.util.stream.Stream;
 
 public class Rectangle extends Shape{
 
-    private final int POINTS_SIZE = 4;
     private final String RESULT_MESSAGE = "사각형 넓이는 ";
     private final String NOT_SQUARE_POINTS = "직사각형의 좌표가 아닙니다.";
-    private final String INVALID_POINTS_SIZE = "점이 " + POINTS_SIZE + "개가 아닙니다.";
+    private final String INVALID_POINTS_SIZE = "점이 " + RECTANGLE_POINT_SIZE + "개가 아닙니다.";
 
     public Rectangle(String values) {
         super(values);
@@ -18,7 +17,6 @@ public class Rectangle extends Shape{
 
     private void validate() {
         checkPointSize();
-        checkDuplicatePoint();
         checkSquarePoints();
     }
 
@@ -55,7 +53,7 @@ public class Rectangle extends Shape{
     }
 
     private boolean isFour(int size) {
-        return size == POINTS_SIZE;
+        return size == RECTANGLE_POINT_SIZE;
     }
 
     @Override

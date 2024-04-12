@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Shape {
+
+    protected static final int LINE_POINT_SIZE = 2;
+    protected static final int TRIANGLE_POINT_SIZE = 3;
+    protected static final int RECTANGLE_POINT_SIZE = 4;
     protected final List<Point> points;
     protected final static String SPLITTER = "-";
     protected final String HAS_DUPLICATE_POINT = "중복좌표가 있습니다.";
@@ -11,6 +15,7 @@ public abstract class Shape {
 
     protected Shape(String values) {
         this.points = generatePoints(values);
+        checkDuplicatePoint();
     }
 
     private static List<Point> generatePoints(String values) {
@@ -24,22 +29,24 @@ public abstract class Shape {
     }
 
     public static Shape generate(String values) {
-        List<Point> er = generatePoints(values);
+        int pointSize = generatePoints(values).size();
 
-        return generateShape(values, er);
+        return generateShape(values, pointSize);
     }
 
-    private static Shape generateShape(String values, List<Point> er) {
-        if (er.size() == 2) {
+    private static Shape generateShape(String values, int pointSize) {
+        if (pointSize == LINE_POINT_SIZE) {
             return new Line(values);
-        } else if (er.size() == 4) {
+        } else if (pointSize == TRIANGLE_POINT_SIZE) {
+            return new Triangle(values);
+        } else if (pointSize == RECTANGLE_POINT_SIZE) {
             return new Rectangle(values);
         }
 
         throw new IllegalArgumentException(INVALID_POINT_COUNTS);
     }
 
-    protected void checkDuplicatePoint() {
+    private void checkDuplicatePoint() {
         List<Point> checkedPoints = new LinkedList<>();
         for (Point point : points) {
             checkContainPoint(point, checkedPoints);

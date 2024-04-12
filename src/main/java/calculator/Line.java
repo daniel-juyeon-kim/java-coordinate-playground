@@ -3,8 +3,7 @@ package calculator;
 public class Line extends Shape{
 
     private final String RESULT_MESSAGE = "두 점 사이 거리는 ";
-    private final int POINTS_SIZE = 2;
-    private final String INVALID_POINTS_SIZE = "점이 " + POINTS_SIZE + "개가 아닙니다.";
+    private final String INVALID_POINTS_SIZE = "점이 " + LINE_POINT_SIZE + "개가 아닙니다.";
     public Line(String values) throws IllegalArgumentException {
         super(values);
         validate();
@@ -12,7 +11,6 @@ public class Line extends Shape{
 
     private void validate() {
         checkPointsSize();
-        checkDuplicatePoint();
     }
 
     private void checkPointsSize() {
@@ -23,7 +21,7 @@ public class Line extends Shape{
     }
 
     private boolean isTwo(int size) {
-        return size == POINTS_SIZE;
+        return size == LINE_POINT_SIZE;
     }
 
     @Override
