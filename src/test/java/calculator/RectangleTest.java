@@ -16,7 +16,7 @@ public class RectangleTest {
         });
 
         assertThatThrownBy(() -> {
-            new Rectangle("(0,0)-(2,0)-(2,1)-(0,0)-(0,9)");
+            new Rectangle("(0,0)-(2,0)-(2,1)-(10,0)-(0,9)");
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("점이 4개가 아닙니다.");
 
