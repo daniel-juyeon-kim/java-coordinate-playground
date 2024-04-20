@@ -1,19 +1,22 @@
-package coordinate;
+package coordinate.model;
 
 import java.util.Objects;
 
 public class Point {
     private final int x;
     private final int y;
+    private final int MIN = 0;
+    private final int MAX = 24;
+    private static final String SPERATOR = ",";
 
     private Point(int x, int y) {
         this.x = x;
-        if (x < 0 || x > 24) {
+        if (x < MIN || MAX < x) {
             throw new IllegalArgumentException();
         }
 
         this.y = y;
-        if (y < 0 || y > 24) {
+        if (y < MIN || MAX < y) {
             throw new IllegalArgumentException();
         }
     }
@@ -41,8 +44,16 @@ public class Point {
     }
 
     public static Point ofCommaSeparator(String text) {
-        String[] values = text.split(",");
+        String[] values = text.split(SPERATOR);
         return new Point(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
+    }
+
+    public boolean isSameX (Point other) {
+        return this.x == other.x;
+    }
+
+    public boolean isSameY (Point other) {
+        return this.y == other.y;
     }
 
     @Override
@@ -65,5 +76,13 @@ public class Point {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
