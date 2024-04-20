@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ public class FigureFactoryTest {
                 Point.of(1, 2),
                 Point.of(2, 3));
 
-        Figure figure = FigureFactory.getInstance(points);
+        Figure figure = FigureFactory.create(points);
         assertThat(figure).isInstanceOfAny(Line.class);
         assertThat(figure.getName()).isEqualTo("선");
     }
@@ -26,7 +26,7 @@ public class FigureFactoryTest {
                 Point.of(4, 1),
                 Point.of(1, 4));
 
-        Figure figure = FigureFactory.getInstance(points);
+        Figure figure = FigureFactory.create(points);
         assertThat(figure).isInstanceOfAny(Triangle.class);
         assertThat(figure.getName()).isEqualTo("삼각형");
     }
@@ -39,7 +39,7 @@ public class FigureFactoryTest {
                 Point.of(1, 4),
                 Point.of(4, 4));
 
-        Figure figure = FigureFactory.getInstance(points);
+        Figure figure = FigureFactory.create(points);
         assertThat(figure).isInstanceOfAny(Rectangle.class);
         assertThat(figure.getName()).isEqualTo("사각형");
     }
