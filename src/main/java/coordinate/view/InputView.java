@@ -43,7 +43,7 @@ public class InputView {
         return points;
     }
 
-    public static Point createPoint(String input) {
+    private static Point createPoint(String input) {
         Pattern pattern = Pattern.compile("\\(([a-zA-Z0-9]+),([a-zA-Z0-9]+)\\)");
         Matcher matcher = pattern.matcher(input);
 
