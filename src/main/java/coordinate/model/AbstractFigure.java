@@ -6,6 +6,7 @@ import java.util.function.Function;
 public abstract class AbstractFigure implements Figure{
 
     private static final String ERROR_DUPLICATE_POINT = "중복 좌표가 존재합니다.";
+    private static final String ERROR_NOT_EXIST_FIGURE = "해당 모형은 지원하지 않습니다.";
     private static final int POINTS_SIZE_OF_LINE = 2;
     private static final int POINTS_SIZE_OF_TRIANGLE = 3;
     private static final int POINTS_SIZE_OF_RECTANGLE = 4;
@@ -29,8 +30,7 @@ public abstract class AbstractFigure implements Figure{
         if (classifier.containsKey(points.size())) {
             return classifier.get(points.size()).apply(points);
         }
-
-        return null;
+        throw new IllegalArgumentException(ERROR_NOT_EXIST_FIGURE);
     }
 
     private static void checkDuplicate(List<Point> points) {

@@ -10,11 +10,11 @@ public class TriangleTest {
     @Test
     void areaTest() {
         double area = AbstractFigure.create(Arrays.asList(
-                new Point(0,0),
-                new Point(24,0),
-                new Point(0,24)
+                new Point(1,1),
+                new Point(24,1),
+                new Point(1,24)
         )).area();
 
-        assertEquals(area, 288.0, 0.1);
+        assertEquals(area, 264.5, 0.1);
     }
 }

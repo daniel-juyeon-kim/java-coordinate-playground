@@ -12,8 +12,8 @@ public class LineTest {
     void areaTest() {
         double area = AbstractFigure.create(
                 Arrays.asList(
-                        new Point(0,0),
-                        new Point(0,1)
+                        new Point(1,1),
+                        new Point(1,2)
                 )
         ).area();
 

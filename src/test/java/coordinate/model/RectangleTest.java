@@ -17,9 +17,9 @@ public class RectangleTest {
         assertDoesNotThrow(() -> {
             AbstractFigure.create(
                     Arrays.asList(
-                            new Point(0,0),
-                            new Point(0,24),
-                            new Point(24,0),
+                            new Point(1,1),
+                            new Point(1,24),
+                            new Point(24,1),
                             new Point(24,24)
                     )
             );
@@ -28,9 +28,9 @@ public class RectangleTest {
         assertThatThrownBy(() -> {
             AbstractFigure.create(
                     Arrays.asList(
-                            new Point(0,0),
-                            new Point(0,24),
-                            new Point(23,0),
+                            new Point(1,1),
+                            new Point(1,24),
+                            new Point(23,1),
                             new Point(24,24)
                     )
             );
@@ -43,14 +43,14 @@ public class RectangleTest {
     void areaTest() {
         double area = AbstractFigure.create(
                 Arrays.asList(
-                        new Point(0,0),
-                        new Point(0,24),
-                        new Point(24,0),
-                        new Point(24,24)
+                        new Point(1,1),
+                        new Point(1,2),
+                        new Point(2,1),
+                        new Point(2,2)
                 )
         ).area();
 
-        assertThat(area).isEqualTo(576.0);
+        assertThat(area).isEqualTo(1.0);
 
     }
 }

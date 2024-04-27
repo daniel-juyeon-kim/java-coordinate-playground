@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Point {
     private final String ERROR_OVER_ARRANGE = "%d 부터 %d내의 숫자만 가능합니다.";
     public final int MAXIMUM_VALUE = 24;
-    public final int MINIMUM_VALUE = 0;
+    public final int MINIMUM_VALUE = 1;
     private final int x;
     private final int y;
 
